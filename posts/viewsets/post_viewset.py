@@ -1,5 +1,6 @@
 import datetime
 
+from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.response import Response
 from django.utils import timezone
@@ -28,7 +29,7 @@ class PostViewSet(BaseViewSet):
         serializer.is_valid(raise_exception=True)
 
         if posts.count() > MAX_POSTS_TODAY:
-            return Response(status=status.HTTP_400_BAD_REQUEST, exception=True)
+            return JsonResponse({'exception': 'not valid'},  status=status.HTTP_400_BAD_REQUEST)
 
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
