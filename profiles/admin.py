@@ -1,5 +1,5 @@
 from django.contrib import admin
-from profiles.models.profiles import Profile, Contacts, Photos
+from profiles.models.profile import Profile, Contacts, Photos
 
 
 @admin.register(Profile)

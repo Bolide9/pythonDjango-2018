@@ -25,6 +25,9 @@ class Contacts(models.Model):
     youtube = models.CharField(max_length=1024, null=True, blank=True)
     mainLink = models.CharField(max_length=1024, null=True, blank=True)
 
+    def __str__(self):
+        return f'{self.github}'
+
     class Meta:
         verbose_name_plural = 'Contacts'
 
@@ -32,7 +35,7 @@ class Contacts(models.Model):
 class Profile(models.Model):
     objects = models.Manager()
 
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     contacts = models.ForeignKey(Contacts, on_delete=models.SET_NULL, null=True, blank=True)
     photos = models.ForeignKey(Photos, on_delete=models.SET_NULL, null=True, blank=True)
 
@@ -40,3 +43,5 @@ class Profile(models.Model):
     lookingForAJobDescription = models.CharField(max_length=2048, null=True, blank=True)
     status = models.CharField(max_length=1024, null=True)
 
+    def __str__(self):
+        return f'{self.user}'
