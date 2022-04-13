@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 
 from addresses.router import router as address
 from users.router import router as user
@@ -13,6 +15,8 @@ urlpatterns = [
     path('', include(follows.urls)),
     path('', include(profiles.urls)),
     path('', include(posts.urls)),
+
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
