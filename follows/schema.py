@@ -13,7 +13,7 @@ class FollowType(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_followers = graphene.List(FollowType)
 
-    def resolve_all_followers(root, info):
+    def resolve_all_followers(self, info):
         return Follow.objects.all()
 
 

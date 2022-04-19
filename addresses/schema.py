@@ -13,7 +13,7 @@ class AddressType(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_addresses = graphene.List(AddressType)
 
-    def resolve_all_addresses(root, info):
+    def resolve_all_addresses(self, info):
         return Address.objects.all()
 
 

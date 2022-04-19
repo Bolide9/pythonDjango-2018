@@ -25,7 +25,7 @@ class ProfileType(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_profiles = graphene.List(ProfileType)
 
-    def resolve_all_profiles(root, info):
+    def resolve_all_profiles(self, info):
         return Profile.objects.all()
 
 

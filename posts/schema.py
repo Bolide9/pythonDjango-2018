@@ -13,7 +13,7 @@ class PostType(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_posts = graphene.List(PostType)
 
-    def resolve_all_posts(root, info):
+    def resolve_all_posts(self, info):
         return Post.objects.all()
 
 
