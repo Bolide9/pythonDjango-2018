@@ -30,13 +30,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "graphene_django",
     'rest_framework',
     'users',
-    'follows',
-    'addresses',
-    'profiles',
-    'posts',
+    'events',
 ]
 
 MIDDLEWARE = [
@@ -155,6 +151,3 @@ LOGGING = {
     }
 }
 
-GRAPHENE = {
-    "SCHEMA": "api.schema.schema"
-}
