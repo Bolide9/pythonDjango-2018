@@ -8,6 +8,4 @@ class EventViewSet(BaseViewSet):
    queryset = Event.objects.all()
    serializer_class = EventSerializer
 
-   def list(self, request, *args, **kwargs):
-      serializer = EventSerializer(self.queryset, many=True)
-      return Response(data=serializer.data)
+
