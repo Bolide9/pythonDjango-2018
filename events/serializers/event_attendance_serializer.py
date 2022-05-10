@@ -6,4 +6,4 @@ class EventAttendanceSerializer(BaseSerializer):
 
     class Meta:
         model = EventAttendance
-        fields = '__all__'
+        fields = ['id', 'user_pk', 'event', 'is_attending']

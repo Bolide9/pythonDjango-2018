@@ -7,3 +7,9 @@ class Position(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
 
+
+    def __str__(self):
+        if self.name:
+            return self.name
+
+        return f'{self.longitude} {self.latitude}'
